@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    #wrapServiceDetailPage(style='height: 88vh; width: 100%; position:relative; top: 10vh; background: #fff; font-family: "PT Mono", monospace ')
+        .container
+            .row
+                .col-12
+                    #detailItems.shadow(style='height: 84vh; width: 80%; position: relative; margin-left: 10%; background: #ff8b03; margin-top: 2vh; border-radius: 20px; padding: 4vh 15px 0px 15px; color: white')
+                        a(style='text-decoration: underline; color: white',href='/singleServicePage/id/' + user._id +'?cities=Алматы') <- Назад к заказам
+                        .row.mt-3
+                            .col-6
+                                img.img-fluid(src='https://images.pexels.com/photos/2885014/pexels-photo-2885014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+                            .col-6
+                                .clearfix
+                                    .float-left
+                                        h3= client.title
+                                    .float-right
+                                        button.btn.btn-outline-light.mb-2(type='submit') Начать чат
+                                div
+                                    span Дата подачи заявки: 
+                                    span= client.fillingDate
+                                div
+                                    span Срок: 
+                                    span= client.date.day + ', ' + client.date.hour + ', ' + client.date.minute
+                                div 
+                                    span Тип транспорта: 
+                                    if(client.mycar =='Не выбрано')
+                                        span= client.car
+                                    else
+                                        span= client.mycar
+                                div 
+                                    span Цена: 
+                                    span= client.cost + ' тнг.'
+                                div 
+                                    span Город: 
+                                    span= client.city
+                            .col-12.mt-3
+                                h3.text-center Описание
+                                div(style='height: 20vh;')= client.detail
+                            .col-12(style='position:relative; top: 4vh; left: 40vh')
+                                button.btn.btn-default(type='submit') Отменить
+                                button.btn.btn-light(type='submit') Принять заказ
+                                
+

@@ -1,0 +1,143 @@
+extends layout
+    
+block content
+    #section-1(style='height: 100vh; width: 100%; position: relative;')
+    #section-1-inner(style='height: 100vh; width: 100%; position: relative; margin-top:-100vh; background-color: rgba(0,0,0,0.5)')
+        .container
+            h1#best_service.display-3 Самые лучшие сервисы находятся у нас
+            h3#describe_problem.display-5 Опиши свою проблему, мы постараемся решить её для тебя...
+            .row
+                #sms.col-sm-10.offset-1
+                    form(method='GET', action='/')
+                        .input-group.mb-3
+                            input.form-control(type='text' placeholder="Найти запчасти для Lambo..." aria-label="Find details for Lambo" aria-describedby='basic-addon2')
+                            .input-group-append
+                                button#basic-addon2.input-group-text.btn(type='submit') Найти
+    #section-2(style='height: 90vh; width: 100%; position:relative; margin-top: -15vh; background-color: ;')
+        .row
+            .col-sm-10.offset-1.col-xs-12(style='height: 90vh; background-color: white;')
+                .container
+                    div#why_exactly_us(style='position:relative; margin-top: 7vh')
+                        h5 ПОЧЕМУ ИМЕННО МЫ?
+                    #bordered.mt-5(style='height: 70vh; width: 100%; background: white; margin-top: 0vh; position: relative;')
+                        .row
+                            .col-sm-6.col-xs-12
+                                .row
+                                    .col-sm-9
+                                        #main_title Арена Мастеров со всего Казахстана
+                                .row
+                                    .col-sm-10   
+                                        p#main_text Мы создаем идеальное условие для людей которые ищут решении для своих авто, также для организации которые устроняют проблему
+                            .col-sm-6.col-xs-12
+                                #under_content
+                                #top_video.shadow
+                                    iframe(src='https://www.youtube.com/embed/hDvlxb49XfU', frameborder='0', allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='')
+                                #figure
+    #section-3(style='height: 90vh; width: 100%; position:relative; margin-top: 0vh; background-color: ;')
+        .row
+            .col-sm-10.offset-1.col-xs-12(style='height: 90vh; background-color: white;')
+                .container
+                    div#our_services(style='position:relative; margin-top: 7vh')
+                        h5 НАШИ СЕРВИСЫ
+                    #catalog.mt-5(style='height: 70vh; width: 100%; background: white; margin-top: 0vh; position: relative;')
+                        p#catalog_title.text-center Каталог популярных сервисов
+                        .container
+                            .row
+                                .col-sm-4
+                                    p Замена мотора
+                                .col-sm-4
+                                    p Замена масла
+                                .col-sm-4
+                                    p Моторы
+                            .row
+                                .col-sm-4
+                                    p Шиномонтажки
+                                .col-sm-4
+                                    p Запчасти
+                                .col-sm-4
+                                    p Кузов
+    #section-4(style='height: 90vh; width: 100%; position:relative; margin-top: -15vh; background-color: ;')
+        .row
+            .col-sm-10.offset-1.col-xs-12(style='height: 90vh; background-color: white;')
+                .container
+                    div#data_realtime(style='position:relative; margin-top: 7vh')
+                        h5 ЗАКАЗЫ РЕАЛЬНОГО ВРЕМЕНИ
+                    #dashboard.shadow.mt-5.border(style='height: 70vh; width: 100%; background: white; margin-top: 0vh; position: relative;')
+                        .container
+                            #car_content.row
+                                .col-sm-2
+                                    p Nomer zakaza
+                                .col-sm-3
+                                    p Nazvanie
+                                .col-sm-2
+                                    p Data
+                                .col-sm-2
+                                    p Cena
+                                .col-sm-3
+                                    p Status
+                        .container
+                            .row#car_infa
+                                .col-sm-2
+                                    p 001
+                                .col-sm-3
+                                    p Motor for Mercedes 222
+                                .col-sm-2
+                                    p 31.01.2020
+                                .col-sm-2
+                                    p 700.000
+                                .col-sm-3#status
+                                    .row
+                                        #status_color.col-sm-3
+                                            div
+                                        .col-sm-9
+                                            p V obrabotke
+                            .row#car_infa
+                                .col-sm-2
+                                    p 001
+                                .col-sm-3
+                                    p Motor for Mercedes 222
+                                .col-sm-2
+                                    p 31.01.2020
+                                .col-sm-2
+                                    p 700.000
+                                .col-sm-3#status
+                                    .row
+                                        #status_color.col-sm-3
+                                            div
+                                        .col-sm-9
+                                            p V obrabotke
+    #section-5(style='height: 90vh; width: 100%; position:relative; margin-top: 0vh; background-color: ;')
+        .row
+            .col-sm-10.offset-1.col-xs-12(style='height: 90vh; background-color: white;')
+                .container
+                    div#data_realtime(style='position:relative; margin-top: 7vh')
+                        h5 ВСЕ НАШИ СЕРВИСЫ
+                    #yandex_maps.shadow.mt-5.border(style='height: 80vh; width: 100%; margin-top: 0vh; position: relative;')
+    #section-6(style='height: 30vh; width: 100%; position:relative; margin-top: 10vh; background-color: black; opacity: 0.8')
+        .row
+            #footer_inner.col-sm-10.offset-1.col-xs-12
+                .container
+                    .row
+                        #footer_inf.col-md-6.col-xs-12
+                            a#car_link(href="/") Carfix.kz
+                            div#address
+                                p Адрес: ул. Мангилик ел 77, д 7
+                                p Город: Нур-Султан
+                                p Тел: 8(778)778-87-78
+                        #footer_nav.col-md-6.col-xs-12
+                            .row
+                                .col-md-2
+                                    p Меню:
+                                .col-md-4
+                                    .nav.flex-column
+                                        .nav-item СТО
+                                        .nav-item Кузовная
+                                        .nav-item Шиномонтажка
+                                        .nav-item Автомойка
+                                .col-md-1.border-left
+                                .col-md-4
+                                    .nav.flex-column
+                                        .nav-item Сервисы
+                                        .nav-item Клиенты
+                                        .nav-item Партнерам
+                                        .nav-item Условия использования

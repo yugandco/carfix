@@ -1,0 +1,25 @@
+{
+  "name": "carfix_light",
+  "version": "0.0.1",
+  "description": "Carfix connect between carowner and carservices",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "YUG",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.0",
+    "express-simple-geoip": "^0.1.1",
+    "express-validator": "5.3.1",
+    "mongoose": "^5.8.9",
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.4"
+  }
+}

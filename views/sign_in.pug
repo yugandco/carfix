@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    #sign_in
+        #image
+           #image_in 
+        #inputs
+            p Вход
+            div#forms
+                != messages('message', locals)
+                form(action='/login', method='POST')
+                    #form_one.form-group
+                        input.form-control(type='text', name='username', placeholder='Номер телефона')
+                        input.form-control.mb-4(type='password', name='password', placeholder='Пароль')
+                        a.text-muted(href='#') Забыли пароль?
+                        input.btn(type='submit', value='Войти')
+            div#under_line
+                .row
+                    .col-md-4.offset-1.border-bottom
+                    .col-md-2
+                        div(style='top: 10px; position:relative') или
+                    .col-md-4.border-bottom
+                .row
+                    #not_have_account.col-md-11.offset-1
+                        div Нет аккаунта? Тогда переходи по ссылке ниже.
+                .row
+                    #registration.col-md-11.offset-1.text-center
+                        a(href='/registr') Зарегистрироваться

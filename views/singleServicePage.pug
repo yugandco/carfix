@@ -1,0 +1,116 @@
+extends layout
+
+block content
+    #wrapServicePage(style='height: 88vh; width: 100%;position:relative; top: 10vh; font-family:"PT Mono", monospace;')
+        .container
+            .row
+                .col-md-12
+                    #menuItems(style='width: 50%; position: relative; margin-left: 25%; margin-top: 2vh')
+                        #list-tab.list-group(role='tablist')
+                            a#list-order-list.list-group-item-action.active(data-toggle='list', href='#list-order', role='tab', aria-controls='order')
+                                span 
+                                    .material-icons assignment
+                                span Новые заказы
+                            a#list-current-list.list-group-item-action(data-toggle='list', href='#list-current', role='tab', aria-controls='current')
+                                span
+                                    .material-icons settings
+                                span Текущие
+                            a#list-history-list.list-group-item-action(data-toggle='list', href='#list-history', role='tab', aria-controls='history')
+                                span
+                                    .material-icons done_all
+                                span История
+                            
+                .col-md-12(style='display: flex; flex-direction: row')
+                    #contentItems.shadow(style='height: 80vh; width: 80%; position: relative; margin-left: 10%; background: white; margin-top: 2vh; border: 1px solid white;border-radius: 20px; padding: 4vh 15px 0px 15px; overflow-y: scroll')
+                        //- Inside of Content
+                        .container
+                            #nav-tabContent.tab-content
+                                #list-order.tab-pane.fade.show.active(role='tabpanel', aria-labelledly='list-order-list')
+                                    .row
+                                        .col-md-12
+                                            .clearfix
+                                                .float-left
+                                                    h3 Новые заказы
+                                                #tune.float-right(style='cursor: default')
+                                                    .material-icons tune
+                                        each client, i in clients
+                                            .col-md-12.mt-2(style='cursor: pointer')
+                                                #contentItemsOrder(style='height: auto; width: 100%; background: #f2f2f3; padding: 2vh; border-radius: 5px')
+                                                    .row
+                                                        .col-3
+                                                            img.img-fluid(src='https://images.pexels.com/photos/2885014/pexels-photo-2885014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', alt="")
+                                                        .col-9
+                                                            a(style='text-decoration: none; color: black',href='/singleServicePage/id/' + user._id + '/detailInformationAboutNewOrder/id/' + client._id)
+                                                                .row
+                                                                    .col-12
+                                                                        .clearfix
+                                                                            .float-left
+                                                                                h5= client.title
+                                                                            .float-right
+                                                                                div
+                                                                                    span перейти
+                                                                                    span -> 
+                                                                    .col-12
+                                                                        .row
+                                                                            .col-8
+                                                                                div(style='font-size: 0.8em')
+                                                                                    span Тип транспорта:
+                                                                                    if(client.car =='Не выбрано')
+                                                                                        span 
+                                                                                            b= client.mycar
+                                                                                    else
+                                                                                        span
+                                                                                            b= client.car
+                                                                                div(style='font-size: 0.8em')
+                                                                                    span Срок:
+                                                                                    span= client.date.day + ', ' + client.date.hour + ', ' + client.date.minute
+                                                                                div(style='font-size:0.8em')
+                                                                                    span Дата подачи:
+                                                                                    span 
+                                                                                        b= client.fillingDate
+                                                                                div(style='font-size: 0.8em')
+                                                                                    span Город:
+                                                                                    span= client.city
+                                                                            .col-4
+                                                                                .row
+                                                                                    .col-12.mt-3
+                                                                                        div(style='font-size: 1em')
+                                                                                            span= client.cost + ' тнг.'
+
+                                #list-current.tab-pane.fade(role='tabpanel', aria-labelledly='list-current-list')
+                                    .row
+                                        .col-md-12
+                                            .clearfix
+                                                .float-left
+                                                    h3 Текущие заказы
+                                                .float-right
+                                                    .material-icons tune
+                                #list-history.tab-pane.fade(role='tabpanel', aria-labelledly='list-history-list')
+                                    .row
+                                        .col-md-12
+                                            .clearfix
+                                                .float-left
+                                                    h3 История
+                                                .float-right
+                                                    .material-icons tune
+                    #contentRightSightTune(style='height: 30vh; width: 10%; background: lightgrey; position: relative; margin-top: 6vh; padding: 5px 10px 0px 10px;')
+                        form(method='GET', action='/singleServicePage/id/' + user._id)
+                            div(style='font-size: 0.8em')
+                                div Выберите город:
+                            div
+                                select.form-control-sm(name='cities')
+                                    option(value='Нур-Султан') Нур-Султан
+                                    option(value='Алматы') Алматы
+                                    option(value='Кокшетау') Кокшетау
+                            //- div(style='font-size: 0.8em')
+                            //-     div Сортировка:
+                            //- div
+                            //-     select.form-control-sm(name='sort')
+                            //-         option(value='-1') Сначала последние
+                            //-         option(value='1') Сначала первые
+                            div
+                                button.btn.btn-light.btn-sm(type='submit') Поиск
+
+
+                            
+    script(src="/assets/js/singleServicePage.js")

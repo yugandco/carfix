@@ -1,0 +1,96 @@
+extends layout
+
+block content
+    .container
+        .row
+            .col-md-12
+                #new_order_wrap
+                    .row
+                        .col-md-2
+                            a.btn.btn-warning(style='color: white; background-color: #ff8b03',href='/singleUserPage/id/' + user._id + '#list-profile') Мои заказы
+                        .col-md-9
+                            #newOrderSection.shadow(style='height: 88vh; width: 100%; border-radius: 10px; background-color: #F5F5F5')
+                                .container
+                                    .container
+                                        form(method='POST', action='/singleUserPage/id/' + user._id +'/add-new-order')
+                                            .row
+                                                .col-12.mt-4
+                                                    .row
+                                                        .col-md-6
+                                                            h5.font-weight-bold Заголовок задание*
+                                                            .input-group.mt-3
+                                                                input.form-control(id='title', name='title', type='text')
+                                                                .input-group-append
+                                                                    .input-group-text 40еще
+                                                .col-12.mt-4
+                                                    .clearfix
+                                                        .float-left
+                                                            h5.font-weight-bold Подробное описание*
+                                                        .float-right
+                                                            a(href='#') Прикрепить файл
+                                                    textarea.mt-3.form-control(rows='2', name='detail', id='detail', placeholder='Подробно опишите, что вам нужно...')
+                                                .col-12.mt-4
+                                                    .container
+                                                        .row
+                                                            .col
+                                                                .form-group
+                                                                    h5.font-weight-bold Выберите категорию
+                                                                    select.form-control(id='category', name='category')
+                                                                        option(value='Кузовная работа') Кузовная работа
+                                                                        option(value='Замена масла') Замена масла
+                                                                        option(value='Замена мотора') Замена мотора
+                                                            .col
+                                                                .form-group
+                                                                    h5.font-weight-bold Выберите время выполнения
+                                                                    .row
+                                                                        .col
+                                                                            input.form-control(type='number', name='day', placeholder='Дней')
+                                                                        .col
+                                                                            input.form-control(type='number', name='hour', placeholder='Часов')
+                                                                        .col
+                                                                            input.form-control(type='number', name='minute', placeholder='Минут')
+                                                .col-12.mt-3
+                                                    .container
+                                                        h5.font-weight-bold Выберите марку вашей машины
+                                                        .row
+                                                            .col
+                                                                .form-group
+                                                                    a#mycar(href='#', style='font-size: 12px; position: relative;left: 1vh') Список ваших машин
+                                                                    select#mycar-select.form-control(name='mycar')
+                                                                        option(value='Не выбрано') Не выбрано
+                                                                        option(value='Mercedes W222 R 2019') Mercedes W222 R 2019
+                                                                        option(value='Tesla Model S 2018') Tesla Model S 2018
+                                                                        option(value='Porshe Cayene Turbo S 2019') Porshe Cayene Turbo S 2019
+                                                            .col
+                                                                .form-group
+                                                                    a#car(href='#', style='font-size: 12px; position: relative;left: 1vh') Список новых машин
+                                                                    select#car-select.form-control(name='car')
+                                                                        option(value='Не выбрано') Не выбрано
+                                                                        option(value='Mercedes W222 R 2019') Mercedes W222 R 2019
+                                                                        option(value='Tesla Model S 2018') Tesla Model S 2018
+                                                                        option(value='Porshe Cayene Turbo S 2019') Porshe Cayene Turbo S 2019
+                                                .col-12.mt-3
+                                                    .container
+                                                        .row
+                                                            .col
+                                                                .form-group
+                                                                    h5.font-weight-bold Выберите город
+                                                                    select.form-control(id='city', name='city')
+                                                                        option(value='Нур-Султан') Нур-Султан
+                                                                        option(value='Алматы') Алматы
+                                                                        option(value='Кокшетау') Кокшетау
+                                                            .col
+                                                                .form-group
+                                                                    h5.font-weight-bold Цена
+                                                                    .input-group
+                                                                        input.form-control(type='text', name='cost', placeholder='10.000')
+                                                                        .input-group-append
+                                                                            .input-group-text тнг
+                                                .col-12.mt-2
+                                                    .container
+                                                        div(style='display: flex; justify-content: center')
+                                                            input.btn.btn-default(type='submit', value='Очистить')
+                                                            input.btn.btn-warning(style='color: white; background-color: #ff8b03', type='submit', value='Разместить')
+    script(src="/assets/js/newOrder.js")
+
+                                                        

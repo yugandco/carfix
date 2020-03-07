@@ -1,0 +1,104 @@
+extends layout
+
+block content
+    .container
+        .row
+            .col-md-12
+                #wrap
+                    #menu_block
+                        #list-tab.menu_block_tab.list-group(role='tablist')
+                            a#list-home-list.list-group-item-action(data-toggle='list', href='#list-home', role='tab', aria-controls='home')  Исполнители
+                            a#list-profile-list.list-group-item-action.active(data-toggle='list', href='#list-profile', role='tab', aria-controls='profile') Мои заказы
+                            a#list-messages-list.list-group-item-action(data-toggle='list', href='#list-messages', role='tab', aria-controls='messages') Избранные
+                            //- a#list-settings-list.menu_block_btn(href='/singleUserPage/id/' + user._id + '/add-new-order') Добавить заказ
+                            a#menu_block_btn.list-group-item-action(href='/singleUserPage/id/' + user._id + '/add-new-order') Добавить заказ
+                    .row
+                        .col-md-10.offset-1
+                            #content_block.shadow
+                                #nav-tabContent.tab-content
+                                    #list-home.tab-pane.fade(role='tabpanel', aria-labelledby='list-home-list') 
+                                        #ispolniteli_wrap
+                                            .row
+                                                #ispolniteli_title.col-md-11
+                                                    h3 Исполнители
+                                                    .row
+                                                        #ispolniteli_content.col-md-12.shadow
+                                                            .row
+                                                                .col-md-3
+                                                                    img.img-fluid(src="https://images.pexels.com/photos/2877188/pexels-photo-2877188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", alt="")
+                                                                .col-md-5
+                                                                    .row
+                                                                        #ispol_about.col-md-12
+                                                                            h5 TOO "Service Line"
+                                                                        #ispol_range.col-md-12
+                                                                            each val in ['star', 'star', 'star', 'star', 'star']
+                                                                                i.material-icons= val
+                                                                        #ispol_text.col-md-12
+                                                                            p Комплексный сервис. Продажа запчастей
+                                                                .col-md-3
+                                                                    p.mt-5 г. Нур-Султан
+                                                                .col-md-1.pt-5
+                                                                    i.material-icons add_circle
+                                                #ispolniteli_sort.col-md-1
+                                                    i.material-icons tune
+                                    #list-profile.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='list-profile-list')
+                                        #moiZakazy_wrap
+                                            .row
+                                                #ispolniteli_title.col-md-11
+                                                    h3 Мои заказы
+                                                    .row
+                                                        each client, i in clients
+                                                            #ispolniteli_content.col-md-12.shadow
+                                                                .row
+                                                                    .col-md-3
+                                                                        img.img-fluid(src="https://images.pexels.com/photos/1005162/pexels-photo-1005162.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500", alt="")
+                                                                    .col-md-9
+                                                                        .row
+                                                                            #ispol_about.col-md-12
+                                                                                .clearfix
+                                                                                    .float-left
+                                                                                        h5= client.title
+                                                                                    .float-right
+                                                                                        h5 ->
+                                                                            #ispol_range.col-md-12(style='margin-top: 3vh')
+                                                                                .row
+                                                                                    .col-md-9
+                                                                                        div(style='width: 35%')
+                                                                                            div.clearfix
+                                                                                                div.float-left
+                                                                                                    div.rounded-circle(style='height: 5vh; width: 5vh; background: lightgrey;')
+                                                                                                div.float-right
+                                                                                                    div.zakazy_text(style='font-size: 12px') TOO "Service Line"
+                                                                                                    each val in ['star', 'star', 'star', 'star', 'star']
+                                                                                                        i.material-icons(style='font-size: 12px')= val
+                                                                                        
+                                                                                    .col-md-3
+                                                                                        p= client.cost + ' тнг'
+                                                #ispolniteli_sort.col-md-1
+                                                    i.material-icons tune
+                                    #list-messages.tab-pane.fade(role='tabpanel', aria-labelledby='list-messages-list')
+                                        #ispolniteli_wrap
+                                            .row
+                                                #ispolniteli_title.col-md-11
+                                                    h3 Иpбранные
+                                                    .row
+                                                        #ispolniteli_content.col-md-12.shadow
+                                                            .row
+                                                                .col-md-3
+                                                                    img.img-fluid(src="https://images.pexels.com/photos/2877188/pexels-photo-2877188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", alt="")
+                                                                .col-md-5
+                                                                    .row
+                                                                        #ispol_about.col-md-12
+                                                                            h5 TOO "Service Line"
+                                                                        #ispol_range.col-md-12
+                                                                            each val in ['star', 'star', 'star', 'star', 'star']
+                                                                                i.material-icons= val
+                                                                        #ispol_text.col-md-12
+                                                                            p Комплексный сервис. Продажа запчастей
+                                                                .col-md-3
+                                                                    p.mt-5 г. Нур-Султан
+                                                                .col-md-1.pt-5
+                                                                    i.material-icons add_circle
+                                                #ispolniteli_sort.col-md-1
+                                                    i.material-icons tune
+    script(src="/assets/js/singleUserPage.js")

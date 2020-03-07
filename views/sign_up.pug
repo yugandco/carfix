@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    #sign_up
+        #image_section
+           #image_up
+        #inputs_section
+            p Регистрация
+            div#forms
+                if errors
+                    each error, i in errors 
+                        div(class='alert alert-danger') #{error.msg}
+                form(action='/registr', method='POST')
+                    #form_two.form-group
+                        input.form-control(type='text', name='full_name', placeholder='ФИО')
+                        input.form-control(type='text', name='username', placeholder='Номер телефона')
+                        input.form-control(type='password', name='password', placeholder='Пароль')
+                        input.form-control(type='password', name='password2', placeholder='Подтвердите пароль')
+                        .row
+                            .col-md-12
+                                #list-tab.sign_up_tab.list-group(role='tablist')
+                                    a#list-client-list.list-group-item-action(data-toggle='list', href='#list-client', role='tab', aria-controls='home') Заказчик
+                                    a#list-service-list.list-group-item-action(data-toggle='list', href='#list-service', role='tab', aria-controls='profile') Сервис
+                            .col-md-12.mt-3
+                                #nav-tabContent.tab-content
+                                    #list-client.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='list-client-list') 
+                                        input.form-control(type='text', name='vin', placeholder='vin')
+                                    #list-service.tab-pane.fade(role='tabpanel', aria-labelledby='list-service-list')
+                                        input.form-control(type='text', name='bin_iin', placeholder='bin/iin')
+                        input.btn(type='submit', value='Регистрация')
+    script(src="/assets/js/signUp.js")
+                        
+                
